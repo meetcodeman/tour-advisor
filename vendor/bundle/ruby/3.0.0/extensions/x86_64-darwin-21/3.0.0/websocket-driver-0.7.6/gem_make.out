@@ -1,0 +1,18 @@
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+/Users/dev/.rvm/rubies/ruby-3.0.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-j6tgn6 sitelibdir\=./.gem.20230815-8574-j6tgn6 clean
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-j6tgn6 sitelibdir\=./.gem.20230815-8574-j6tgn6
+compiling websocket_mask.c
+linking shared-object websocket_mask.bundle
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-j6tgn6 sitelibdir\=./.gem.20230815-8574-j6tgn6 install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 websocket_mask.bundle ./.gem.20230815-8574-j6tgn6
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-j6tgn6 sitelibdir\=./.gem.20230815-8574-j6tgn6 clean

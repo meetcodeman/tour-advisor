@@ -1,0 +1,39 @@
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.9/ext/nio4r
+/Users/dev/.rvm/rubies/ruby-3.0.5/bin/ruby extconf.rb
+checking for unistd.h... yes
+checking for linux/aio_abi.h... no
+checking for linux/io_uring.h... no
+checking for sys/select.h... yes
+checking for port_event_t in poll.h... no
+checking for sys/epoll.h... no
+checking for sys/event.h... yes
+checking for sys/queue.h... yes
+checking for port_event_t in port.h... no
+checking for sys/resource.h... yes
+creating Makefile
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.9/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-jij0ho sitelibdir\=./.gem.20230815-8574-jij0ho clean
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.9/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-jij0ho sitelibdir\=./.gem.20230815-8574-jij0ho
+compiling bytebuffer.c
+compiling monitor.c
+compiling nio4r_ext.c
+In file included from nio4r_ext.c:6:
+./../libev/ev.c:573:48: warning: '/*' within block comment [-Wcomment]
+/*#define MIN_INTERVAL  0.00000095367431640625 /* 1/2**20, good till 2200 */
+                                               ^
+./../libev/ev.c:2136:31: warning: 'extern' variable has an initializer [-Wextern-initializer]
+  EV_API_DECL struct ev_loop *ev_default_loop_ptr = 0; /* needs to be initialised to make it a definition despite extern */
+                              ^
+2 warnings generated.
+compiling selector.c
+linking shared-object nio4r_ext.bundle
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.9/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-jij0ho sitelibdir\=./.gem.20230815-8574-jij0ho install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 nio4r_ext.bundle ./.gem.20230815-8574-jij0ho
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/nio4r-2.5.9/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-jij0ho sitelibdir\=./.gem.20230815-8574-jij0ho clean

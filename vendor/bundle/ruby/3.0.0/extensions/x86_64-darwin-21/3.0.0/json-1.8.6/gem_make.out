@@ -1,0 +1,16 @@
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/json-1.8.6/ext/json
+/Users/dev/.rvm/rubies/ruby-3.0.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/json-1.8.6/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230815-42298-o7opdi sitelibdir\=./.gem.20230815-42298-o7opdi clean
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/json-1.8.6/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230815-42298-o7opdi sitelibdir\=./.gem.20230815-42298-o7opdi
+make: Nothing to be done for `all'.
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/json-1.8.6/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230815-42298-o7opdi sitelibdir\=./.gem.20230815-42298-o7opdi install
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/json-1.8.6/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230815-42298-o7opdi sitelibdir\=./.gem.20230815-42298-o7opdi clean

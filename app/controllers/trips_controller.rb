@@ -3,8 +3,6 @@ class TripsController < ApplicationController
 
   def index
     @trips = current_user.trips
-
-    render json: { trips: @trips }, status: 200
   end
 
   def create

@@ -1,0 +1,41 @@
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark p-4">
+    <h5 class="text-white h4">Trip Advisor</h5>
+
+    <span class="text-muted">Toggleable via the navbar brand.</span>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<main>
+  <section class="py-5 text-center container">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 shipments" style='height:70vh;overflow-y:scroll;'>
+                <% @trips.each do |trip| %>
+                <div class='m-3'>
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= trip.name %></h5>
+                            <p class="card-text"><%= trip.status.humanize %></p>
+                            <button class="trip-button" data-attribute-id="<%= trip.id %>">Click me</button>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+            <div class="col">
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+</main>

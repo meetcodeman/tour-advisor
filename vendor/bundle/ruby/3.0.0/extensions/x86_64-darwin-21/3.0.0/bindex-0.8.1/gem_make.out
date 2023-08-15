@@ -1,0 +1,18 @@
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/dev/.rvm/rubies/ruby-3.0.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-l7svbj sitelibdir\=./.gem.20230815-8574-l7svbj clean
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-l7svbj sitelibdir\=./.gem.20230815-8574-l7svbj
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-l7svbj sitelibdir\=./.gem.20230815-8574-l7svbj install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cruby.bundle ./.gem.20230815-8574-l7svbj/skiptrace/internal
+
+current directory: /Users/dev/Downloads/trip-advisor/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20230815-8574-l7svbj sitelibdir\=./.gem.20230815-8574-l7svbj clean
