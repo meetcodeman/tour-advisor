@@ -54,9 +54,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'faker'
 gem 'uuid'
 gem 'dotenv-rails'
 gem 'faker'
-gem 'open-weather'
 gem 'open-weather-ruby-client'
