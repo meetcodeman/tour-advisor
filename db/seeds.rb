@@ -16,7 +16,8 @@ require 'faker'
         name: Faker::Lorem.words(number: 2).join(' '),
         starts_at: Faker::Time.between(from: 1.month.from_now, to: 3.months.from_now),
         ends_at: Faker::Time.between(from: 3.months.from_now, to: 6.months.from_now),
-        status: ["planned", "in_progress", "completed"].sample,
+        status: Trip::statuses.values.sample,
+        city_name: Faker::Address.city,
         user_id: user.id,
         created_at: Faker::Time.between(from: 6.months.ago, to: Time.current),
         updated_at: Faker::Time.between(from: 6.months.ago, to: Time.current)

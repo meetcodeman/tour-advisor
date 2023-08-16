@@ -1,3 +1,25 @@
-// Place all the styles related to the trips controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+<%= form_with(model: @trip, local: true, class: "custom-form") do |form| %>
+  <div class="form-group">
+    <%= form.label :name, class: "font-weight-bold" %>
+    <%= form.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :city_name, class: "font-weight-bold" %>
+    <%= form.text_field :city_name, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :starts_at, class: "font-weight-bold" %>
+    <%= form.datetime_select :starts_at, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :ends_at, class: "font-weight-bold" %>
+    <%= form.datetime_select :ends_at, class: "form-control" %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit "Create Trip", class: "btn btn-primary" %>
+  </div>
+<% end %>

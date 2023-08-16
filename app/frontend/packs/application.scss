@@ -4,3 +4,35 @@ h1 {
     
 // Import Bootstrap v5  
 @import "~bootstrap/scss/bootstrap";  
+
+/* Add custom styles for the trips container */
+.trips-container {
+  height: 70vh;
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 10px; /* Add some padding for better appearance */
+}
+
+/* Style the trip cards */
+.trip-card {
+  margin-bottom: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.trip-card h5 {
+  margin-bottom: 5px;
+}
+
+.trip-card p {
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+/* Style the Create New Trip button */
+.create-trip-button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+}
+

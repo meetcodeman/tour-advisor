@@ -4,10 +4,14 @@ class TripsController < ApplicationController
 
   def index
     @trips = current_user.trips
-    render json: { trips: @trips }, status: 200
+  end
+
+  def new
+    @trip = Trip.new
   end
 
   def create
+    byebug
     city_weather_details = weather_service.get_weather_info
 
     trip = current_user.trips.build(trip_params)
@@ -21,6 +25,13 @@ class TripsController < ApplicationController
     end
   rescue OpenWeather::Errors::Fault => e
     handle_weather_error(e)
+  end
+
+  def show
+    @trip = Trip.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @trip }
+    end
   end
 
   def update
