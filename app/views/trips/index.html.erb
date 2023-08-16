@@ -1,41 +1,32 @@
-<div class="collapse" id="navbarToggleExternalContent">
-  <div class="bg-dark p-4">
-    <h5 class="text-white h4">Trip Advisor</h5>
-
-    <span class="text-muted">Toggleable via the navbar brand.</span>
-  </div>
-</div>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-</nav>
-
 <main>
   <section class="py-5 text-center container">
     <div class="container">
-        <div class="row">
-            <div class="col-3 shipments" style='height:70vh;overflow-y:scroll;'>
-                <% @trips.each do |trip| %>
-                <div class='m-3'>
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><%= trip.name %></h5>
-                            <p class="card-text"><%= trip.status.humanize %></p>
-                            <button class="trip-button" data-attribute-id="<%= trip.id %>">Click me</button>
-                        </div>
-                    </div>
+      <div class="row">
+          <!-- Left Column with Trips and Create Button -->
+          <div class="col-lg-3 trips-container">
+            <div class="scroll-container">
+              <% @trips.each do |trip| %>
+                <div class="trip-card">
+                  <h5><%= trip.name %></h5>
+                  <p><%= trip.status.humanize %></p>
+                  <button class="btn btn-primary trip-button" data-toggle="modal" data-target="#myModal" data-attribute-id="<%= trip.id %>">Click me</button>
                 </div>
-            <% end %>
-        </div>
-            <div class="col">
-                <div class="map-container">
-                    <div id="map"></div>
-                </div>
+              <% end %>
             </div>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-lg-3">
+            <%= link_to "Create New Trip", new_trip_path, class: "btn btn-primary create-trip-button" %>
+          </div>
+        </div>
+        <!-- Right Column with Map -->
+        <div class="col-lg">
+          <div class="map-container">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </main>

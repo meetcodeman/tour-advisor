@@ -5,7 +5,10 @@ class TripsController < ApplicationController
   def index
     session[:email] = current_user.email
     @trips = current_user.trips
-    render json: { trips: @trips }, status: 200
+  end
+
+  def new
+    @trip = Trip.new
   end
 
   def new
@@ -13,6 +16,7 @@ class TripsController < ApplicationController
   end
 
   def create
+    byebug
     city_weather_details = weather_service.get_weather_info
 
     trip = current_user.trips.build(trip_params)
