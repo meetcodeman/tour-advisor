@@ -2,7 +2,6 @@
   <section class="py-5 text-center container">
     <div class="container">
       <div class="row">
-          <!-- Left Column with Trips and Create Button -->
           <div class="col-lg-3 trips-container">
             <div class="scroll-container">
               <% @trips.each do |trip| %>
@@ -20,7 +19,6 @@
             <%= link_to "Create New Trip", new_trip_path, class: "btn btn-primary create-trip-button" %>
           </div>
         </div>
-        <!-- Right Column with Map -->
         <div class="col-lg">
           <div class="map-container">
             <div id="map"></div>

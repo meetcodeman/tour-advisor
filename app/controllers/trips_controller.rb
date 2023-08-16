@@ -16,20 +16,17 @@ class TripsController < ApplicationController
   end
 
   def create
-    byebug
     city_weather_details = weather_service.get_weather_info
 
     trip = current_user.trips.build(trip_params)
     trip.destination_details = city_weather_details
 
-    if trip.save
-      redirect_to trips_path, notice: 'Trip Create Success'
-    else
-      flash[:alert] = "Error creating trip: #{trip.errors.full_messages.join(', ')}"
-      redirect_to trips_path
+    if trip_service.error
+      render :new, alert: trip_service.error
+      return
     end
-  rescue OpenWeather::Errors::Fault => e
-    handle_weather_error(e)
+
+    redirect_to trips_path, notice: 'Trip Create Success'
   end
 
   def show
@@ -74,18 +71,6 @@ class TripsController < ApplicationController
     params.require(:trip).permit(:name, :ends_at, :starts_at, :long, :lat, :status, :city_name)
   end
 
-  def weather_options
-    {
-      long: params[:long],
-      lat: params[:lat],
-      city_name: update_params[:city_name] || trip_params[:city_name]
-    }
-  end
-
-  def weather_service
-    OpenWeatherService.new(weather_options)
-  end
-
   def find_trip
     @trip = current_user.trips.find(params[:id])
   end
@@ -93,10 +78,5 @@ class TripsController < ApplicationController
   def fetch_and_update_weather_details
     city_weather_details = weather_service.get_weather_info
     @trip.destination_details = city_weather_details
-  end
-
-  def handle_weather_error(error)
-    flash[:alert] = "Error fetching weather data: #{error.message}"
-    redirect_to trips_path
   end
 end
