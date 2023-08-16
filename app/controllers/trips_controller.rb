@@ -5,6 +5,7 @@ class TripsController < ApplicationController
   def index
     session[:email] = current_user.email
     @trips = current_user.trips
+    render json: { trips: @trips }, status: 200
   end
 
   def new
