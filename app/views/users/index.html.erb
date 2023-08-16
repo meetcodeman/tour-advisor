@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enter Email</title>
+</head>
+<body>
+
+<div class="container mt-5">  
+  <%= form_tag trips_path, method: :get do %>
+    <div class="form-group">
+      <%= label_tag :email, "Email:" %>
+      <%= text_field_tag :email, params[:email], class: "form-control", placeholder: "Enter your email" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag "Submit", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+</body>
+</html>

@@ -10,6 +10,7 @@
                   <h5><%= trip.name %></h5>
                   <p><%= trip.status.humanize %></p>
                   <button class="btn btn-primary trip-button" data-toggle="modal" data-target="#myModal" data-attribute-id="<%= trip.id %>">Click me</button>
+                  <%= link_to "Delete Trip", trip_path(trip, email: @current_user.email), method: :delete, data: { confirm: "Are you sure you want to delete this trip?" }, class: "btn btn-danger delete-trip-button" %>
                 </div>
               <% end %>
             </div>

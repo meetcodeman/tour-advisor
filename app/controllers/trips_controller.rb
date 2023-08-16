@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   before_action :find_trip, only: [:update, :destroy]
 
   def index
+    session[:email] = current_user.email
     @trips = current_user.trips
   end
 
@@ -57,7 +58,7 @@ class TripsController < ApplicationController
   private
 
   def current_user
-    @current_user ||= User.find_by(email: params[:email] || session[:email])
+    @current_user ||= User.find_by!(email: params[:email] || session[:email])
   end
 
   def trip_params
