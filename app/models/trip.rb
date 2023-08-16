@@ -9,4 +9,5 @@ class Trip < ApplicationRecord
   }
 
   validates :starts_at, :name, presence: true
+  validates :city_name, :name, presence: true
 end

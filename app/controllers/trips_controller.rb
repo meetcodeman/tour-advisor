@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :find_trip, only: [:update, :delete]
+  before_action :find_trip, only: [:update, :destroy]
 
   def index
     @trips = current_user.trips
@@ -11,7 +11,6 @@ class TripsController < ApplicationController
   end
 
   def create
-    byebug
     city_weather_details = weather_service.get_weather_info
 
     trip = current_user.trips.build(trip_params)
@@ -41,16 +40,16 @@ class TripsController < ApplicationController
       session[:email] = current_user.email
       redirect_to trips_path, notice: 'Trip Update Success'
     else
-      flash[:alert] = "Error updating trip: #{trip.errors.full_messages.join(', ')}"
+      flash[:alert] = "Error updating trip: #{@trip.errors.full_messages.join(', ')}"
       redirect_to trips_path
     end
   end
 
-  def delete
+  def destroy
     if @trip.destroy
       redirect_to trips_path, notice: 'Trip Deleted Success'
     else
-      flash[:alert] = "Error deleting trip: #{trip.errors.full_messages.join(', ')}"
+      flash[:alert] = "Error deleting trip: #{@trip.errors.full_messages.join(', ')}"
       redirect_to trips_path
     end
   end
