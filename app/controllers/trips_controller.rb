@@ -47,7 +47,6 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     if @trip.destroy
       redirect_to trips_path, notice: 'Trip Deleted Success'
     else
@@ -73,7 +72,6 @@ class TripsController < ApplicationController
   end
 
   def find_trip
-    binding.pry
     @trip = current_user.trips.find(params[:id])
   end
 
