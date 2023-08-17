@@ -8,7 +8,6 @@ class TripService
     def create_trip
         begin
             params[:description] = trip_description
-            byebug
             Trip.create!(params)
         rescue => e
             @error = e.message
