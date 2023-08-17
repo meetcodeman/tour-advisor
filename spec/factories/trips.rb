@@ -6,6 +6,6 @@ FactoryBot.define do
     ends_at { Faker::Time.between(from: starts_at, to: starts_at + 7) }
     status { 'PLANNED' }
     association :user, factory: :user
-    city_name { Faker::Address.city }
+    city_name { ['new york', 'los angeles', 'san francisco', 'atlanta'].sample }
   end
 end

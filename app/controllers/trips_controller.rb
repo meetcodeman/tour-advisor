@@ -1,6 +1,8 @@
 class TripsController < ApplicationController
   skip_before_action :verify_authenticity_token
+
   before_action :find_trip, only: [:update, :destroy]
+  before_action :find_user, except: %i[new show]
 
   def index
     session[:email] = current_user.email
@@ -11,18 +13,13 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
-  def new
-    @trip = Trip.new
-  end
-
   def create
-    city_weather_details = weather_service.get_weather_info
-
-    trip = current_user.trips.build(trip_params)
-    trip.destination_details = city_weather_details
+    trip_service = TripService.new(trip_params, current_user)
+    trip_service.create_trip!
 
     if trip_service.error
-      render :new, alert: trip_service.error
+      flash[:alert] = trip_service.error
+      render :new
       return
     end
 
@@ -37,9 +34,10 @@ class TripsController < ApplicationController
   end
 
   def update
-    fetch_and_update_weather_details if update_params[:city_name].present?
+    trip_service = TripService.new(trip_params, @trip.user)
+    trip_service.update_trip!(@trip)
 
-    if @trip.update(update_params)
+    unless trip_service.error
       session[:email] = current_user.email
       redirect_to trips_path, notice: 'Trip Update Success'
     else
@@ -49,6 +47,7 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     if @trip.destroy
       redirect_to trips_path, notice: 'Trip Deleted Success'
     else
@@ -59,19 +58,22 @@ class TripsController < ApplicationController
 
   private
 
+  def find_user
+    current_user
+  end
+
   def current_user
-    @current_user ||= User.find_by!(email: params[:email] || session[:email])
+    @current_user ||= begin
+      User.find_or_create_by(email: params[:email] || session[:email])
+    end
   end
 
   def trip_params
     params.require(:trip).permit(:name, :starts_at, :ends_at, :city_name)
   end
 
-  def update_params
-    params.require(:trip).permit(:name, :ends_at, :starts_at, :long, :lat, :status, :city_name)
-  end
-
   def find_trip
+    binding.pry
     @trip = current_user.trips.find(params[:id])
   end
 

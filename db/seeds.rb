@@ -1,5 +1,5 @@
 require 'faker'
-
+require 'geocoder'
 5.times do
     user = User.create(
       email: Faker::Internet.email,
@@ -8,9 +8,13 @@ require 'faker'
     )
   
     rand(1..3).times do
+      city = ['new york', 'los angeles', 'san francisco', 'atlanta'].sample
+      lat, long = Geocoder.search('new york').first.coordinates
       Trip.create(
         destination_details: {
-          city: Faker::Address.city,
+          lat: lat,
+          long: long,
+          city: city,
           country: Faker::Address.country
         }.to_json,
         name: Faker::Lorem.words(number: 2).join(' '),

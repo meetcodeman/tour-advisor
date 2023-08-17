@@ -36,7 +36,7 @@ RSpec.describe TripsController, type: :controller do
   describe "POST #create" do
     it "creates a new trip with weather details" do
       allow(OpenWeatherService).to receive(:new).and_return(weather_service)
-      allow(weather_service).to receive(:get_weather_info).and_return({ "main" => { "feels_like" => 25 } })
+      allow(weather_service).to receive(:weather_data).and_return({ "feels_like" => 25 })
 
       trip_params = { name: "Trip 1", starts_at: Time.now, city_name: "New York" }
       post :create, params: { email: user.email, trip: trip_params }
@@ -64,7 +64,7 @@ RSpec.describe TripsController, type: :controller do
 
     before do
       allow(OpenWeatherService).to receive(:new).and_return(weather_service)
-      allow(weather_service).to receive(:get_weather_info).and_return({ "main" => { "feels_like" => 25 } })
+      allow(weather_service).to receive(:weather_data).and_return({ "feels_like" => 25 })
     end
 
     context "with valid attributes" do
